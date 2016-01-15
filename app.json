@@ -1,0 +1,36 @@
+{
+  "name": "Django on Heroku",
+  "description": "A Django project template for Heroku.",
+  "keywords": [
+    "django",
+    "python"
+  ],
+  "website": "https://www.djangoproject.com/",
+  "repository": "https://github.com/django/django",
+  "logo": "https://avatars1.githubusercontent.com/u/27804?v=3&s=200",
+  "success_url": "/",
+  "scripts": {
+    "postdeploy": "DJANGO_SETTINGS_MODULE=django-on-heroku.settings django-admin migrate"
+  },
+  "env": {
+    "WEB_CONCURRENCY": {
+      "description": "Number of processes to run.",
+      "value": "5"
+    },
+    "WSGI_APPLICATION": {
+      "description": "DO NOT CHANGE: django-on-heroku.wsgi",
+      "value": "django-on-heroku.wsgi"
+    },
+    "SECRET_KEY": {
+      "description": "SECRET_KEY for this Django installation. This will be generated for you.",
+      "generator": "secret"
+    },
+    "PYTHONPATH": {
+      "description": "DO NOT CHANGE: '/app/:/app/packages/'",
+      "value": "/app/:/app/packages/"
+    }
+  },
+  "addons": [
+    "heroku-postgresql"
+  ]
+}
